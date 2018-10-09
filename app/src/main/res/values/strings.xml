@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Home Repair Service</string>
+
+    <string-array name="accountTypes">
+        <item>Admin</item>
+        <item>Homeowner</item>
+        <item>Service Provider</item>
+    </string-array>
+</resources>
