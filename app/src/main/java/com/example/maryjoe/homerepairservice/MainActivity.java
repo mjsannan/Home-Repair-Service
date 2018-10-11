@@ -20,7 +20,20 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view){
         // opens a new activity when the sign up button is pushed
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+<<<<<<< HEAD
         EditText editText = (EditText) findViewById(R.id.editText3); //not sure about editText3
+=======
+        EditText editText = (EditText) findViewById(R.id.editText3);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void sendMessage2(View view) {
+     // opens a new activity when the sign in button is pushed
+        Intent intent = new Intent(this, WelcomePage.class);
+        EditText editText = (EditText) findViewById(R.id.editText3);
+>>>>>>> 2b31c3d04bfb75af064787c142143739a628b53b
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
