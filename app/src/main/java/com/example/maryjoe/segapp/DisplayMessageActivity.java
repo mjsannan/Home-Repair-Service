@@ -20,6 +20,10 @@ import static com.example.maryjoe.segapp.MainActivity.EXTRA_MESSAGE;
 public class DisplayMessageActivity extends AppCompatActivity {
 
     Object accountType;
+    String nameOfUser;
+    String emailOfUser;
+    String usernameOfUser;
+    String passwordOfUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +42,34 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void adminClick(View view) {
         accountType = "Admin";
+
+        EditText editTextName = (EditText) findViewById(R.id.nameTextField);
+        nameOfUser = editTextName.getText().toString();
+
+        EditText editTextEmail = (EditText) findViewById(R.id.emailTextField);
+        emailOfUser = editTextEmail.getText().toString();
+
+        EditText editTextUserName = (EditText) findViewById(R.id.usernameTextField);
+        usernameOfUser = editTextUserName.getText().toString();
+
+        EditText editTextPassword = (EditText) findViewById(R.id.passwordTextField);
+        passwordOfUser = editTextPassword.getText().toString();
     }
 
     public void homeOwnerClick(View view) {
         accountType = "Homeowner";
+
+        EditText editTextName = (EditText) findViewById(R.id.nameTextField);
+        nameOfUser = editTextName.getText().toString();
+
+        EditText editTextEmail = (EditText) findViewById(R.id.emailTextField);
+        emailOfUser = editTextEmail.getText().toString();
+
+        EditText editTextUserName = (EditText) findViewById(R.id.usernameTextField);
+        usernameOfUser = editTextUserName.getText().toString();
+
+        EditText editTextPassword = (EditText) findViewById(R.id.passwordTextField);
+        passwordOfUser = editTextPassword.getText().toString();
     }
 
     public void serviceProviderClick(View view) {
@@ -51,6 +79,17 @@ public class DisplayMessageActivity extends AppCompatActivity {
         LinearLayout serviceProLay = (LinearLayout) findViewById(R.id.serviceProviderLayout);
         serviceProLay.setVisibility(View.VISIBLE);
 
+        EditText editTextName = (EditText) findViewById(R.id.nameTextField);
+        nameOfUser = editTextName.getText().toString();
+
+        EditText editTextEmail = (EditText) findViewById(R.id.emailTextField);
+        emailOfUser = editTextEmail.getText().toString();
+
+        EditText editTextUserName = (EditText) findViewById(R.id.usernameTextField);
+        usernameOfUser = editTextUserName.getText().toString();
+
+        EditText editTextPassword = (EditText) findViewById(R.id.passwordTextField);
+        passwordOfUser = editTextPassword.getText().toString();
     }
 
 }
