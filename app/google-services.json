@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "195688552711",
+    "firebase_url": "https://segprojectauthenticaton.firebaseio.com",
+    "project_id": "segprojectauthenticaton",
+    "storage_bucket": "segprojectauthenticaton.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195688552711:android:78908340ce930727",
+        "android_client_info": {
+          "package_name": "com.example.maryjoe.segapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195688552711-m3ciq9bq99ucobp9atban6ckj1spo0g8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASPJQWJd4PWIwRlbJHkkxT85KkqSHLROE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

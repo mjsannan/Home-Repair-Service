@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".DisplayMessageActivity" />
         <activity android:name=".WelcomePage" />
-        <activity android:name=".WelcomePage2"></activity>
     </application>
 
 </manifest>

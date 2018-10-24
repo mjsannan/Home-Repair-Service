@@ -17,7 +17,11 @@ public class WelcomePage extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.nameTextField);
-        textView.setText(message);
+        TextView nameTextField = findViewById(R.id.nameTextField);
+        nameTextField.setText(DisplayMessageActivity.getNameOfUser());
+
+        TextView loggedTextView = findViewById(R.id.loggedTextView);
+        loggedTextView.setText(DisplayMessageActivity.getAccountType());
     }
+
 }

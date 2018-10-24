@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/appLogo"
         android:layout_width="200dp"
         android:layout_height="193dp"
         android:contentDescription="app logo"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/signInUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,11 +30,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/appLogo"
         app:layout_constraintVertical_bias="0.251" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/signInPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -47,23 +47,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/signInUsername"
         app:layout_constraintVertical_bias="0.236" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not a member?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        app:layout_constraintVertical_bias="0.361" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSignUp"
         android:layout_width="89dp"
         android:layout_height="44dp"
         android:layout_marginBottom="16dp"
@@ -75,17 +63,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSignIn"
         android:layout_width="89dp"
         android:layout_height="44dp"
         android:layout_marginBottom="16dp"
         android:onClick="sendMessage2"
         android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignUp"
         app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
+        app:layout_constraintTop_toBottomOf="@+id/signInPassword"
         app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
