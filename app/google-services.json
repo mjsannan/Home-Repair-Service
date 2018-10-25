@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "892602834797",
+    "firebase_url": "https://segappauth.firebaseio.com",
+    "project_id": "segappauth",
+    "storage_bucket": "segappauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892602834797:android:78908340ce930727",
+        "android_client_info": {
+          "package_name": "com.example.maryjoe.segapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892602834797-6gh4gb6n0gbdthhef46g7q1vidlv45o0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.maryjoe.segapp",
+            "certificate_hash": "2e3336e1c07c7b3e2c47bbb5d0b6e7511c498e63"
+          }
+        },
+        {
+          "client_id": "892602834797-al5tj3vbf627st7huo6s1d4vi8nt1jo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXLPRqbarxc44J2e7TVFiQH2WVB-toDe8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892602834797-al5tj3vbf627st7huo6s1d4vi8nt1jo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,6 +10,7 @@
         android:id="@+id/signUp"
         android:layout_width="120dp"
         android:layout_height="51dp"
+        android:layout_marginTop="32dp"
         android:text="Sign Up"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,12 +25,12 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
+        android:textColorLink="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/signUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signUp"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintTop_toTopOf="@+id/signUp" />
 
     <EditText
         android:id="@+id/emailTextField"
@@ -37,7 +38,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
+        android:textColorLink="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/usernameTextField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -47,11 +49,11 @@
     <EditText
         android:id="@+id/usernameTextField"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/passwordTextField"
+        android:textColorLink="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +62,7 @@
     <EditText
         android:id="@+id/passwordTextField"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -68,7 +70,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextField"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/confirmPassTextField"
@@ -77,32 +80,102 @@
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/dropdownMenu"
+        android:textColorLink="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/accountLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
 
-    <Spinner
-        android:id="@+id/dropdownMenu"
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
+    <TextView
+        android:id="@+id/accountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:text="Choose account type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField" />
+
+    <LinearLayout
+        android:id="@+id/btnLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/accountLabel">
+
+        <Button
+            android:id="@+id/admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="adminClick"
+            android:text="ADMIN" />
+
+        <Button
+            android:id="@+id/homeOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="homeOwnerClick"
+            android:text="HOMEOWNER" />
+
+        <Button
+            android:id="@+id/serviceProvider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="serviceProviderClick"
+            android:text="SERVICE PROVIDER" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/serviceProviderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3">
+
+        <EditText
+            android:id="@+id/serviceTypeField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Service Type" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="89dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:onClick="sendMessage3"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerVertical = "true"
+        android:layout_centerHorizontal = "true"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
 
 </android.support.constraint.ConstraintLayout>
