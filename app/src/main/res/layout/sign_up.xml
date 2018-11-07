@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DisplayMessageActivity">
+    tools:context=".SignUp">
 
     <TextView
         android:id="@+id/signUp"
@@ -54,7 +54,6 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:textColorLink="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/passwordTextField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,13 +65,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
-        android:textColorLink="@color/colorPrimary"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/confirmPassTextField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextField"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/confirmPassTextField"
@@ -91,18 +90,23 @@
     <TextView
         android:id="@+id/accountLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
         android:text="Choose account type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField"/>
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField" />
 
     <LinearLayout
         android:id="@+id/btnLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountLabel">
 
         <Button
@@ -135,9 +139,14 @@
         android:id="@+id/serviceProviderLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btnLinearLayout"
+        android:layout_marginTop="244dp"
+        android:orientation="vertical"
         android:visibility="invisible"
-        android:orientation="vertical">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3">
 
         <EditText
             android:id="@+id/serviceTypeField"
@@ -155,9 +164,18 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:onClick="sendMessage3"
+        android:onClick="goToWelcome"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerVertical = "true"
+        android:layout_centerHorizontal = "true"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
 
 </android.support.constraint.ConstraintLayout>

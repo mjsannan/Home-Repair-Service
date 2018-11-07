@@ -1,25 +1,33 @@
 package com.example.maryjoe.segapp;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.app.Activity;
 import android.content.Intent;
 
 
 import android.util.Patterns;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
-import static com.example.maryjoe.segapp.MainActivity.EXTRA_MESSAGE;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class DisplayMessageActivity extends AppCompatActivity implements View.OnClickListener {
+import static com.example.maryjoe.segapp.SignIn.EXTRA_MESSAGE;
+
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
+
+    public static DatabaseReference database;
 
     public static String accountType;
     public static String nameOfUser;
@@ -27,21 +35,34 @@ public class DisplayMessageActivity extends AppCompatActivity implements View.On
     public static String usernameOfUser;
     public static String passwordOfUser;
 
-    EditText editTextusername,editTextname,editTextemail,editTextpassword,editTextconfpass;
+    public static FirebaseAuth mAuth;
+
+    public static ProgressBar progBar;
+
+    public static EditText editTextusername,editTextname,editTextemail,editTextpassword,editTextconfpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.sign_up);
+        database = FirebaseDatabase.getInstance().getReference();
+
 
         editTextname = (EditText) findViewById(R.id.nameTextField);
         editTextusername = (EditText) findViewById(R.id.usernameTextField);
         editTextemail = (EditText) findViewById(R.id.emailTextField);
         editTextpassword = (EditText) findViewById(R.id.passwordTextField);
         editTextconfpass = (EditText) findViewById(R.id.confirmPassTextField);
+
+        mAuth= FirebaseAuth.getInstance();
+
+        progBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        findViewById(R.id.button3).setOnClickListener(this);
+
     }
 
-    private void registerUser(){
+    public void registerUser(){
         String name = editTextname.getText().toString().trim();
         String email = editTextemail.getText().toString().trim();
         String username = editTextusername.getText().toString().trim();
@@ -86,24 +107,48 @@ public class DisplayMessageActivity extends AppCompatActivity implements View.On
             return;
         }
         if(!confirmpass.equals(password)){
-            editTextconfpass.setError("Passwoed does not match. Renter password");
+            editTextconfpass.setError("Password does not match. Renter password");
             editTextconfpass.requestFocus();
             return;
         }
+        progBar.setVisibility(View.VISIBLE);
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progBar.setVisibility(View.GONE);
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),"User Registration Successful",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Error occurred",Toast.LENGTH_SHORT).show();
+
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        Toast.makeText(getApplicationContext(),"You are already registered in the system",Toast.LENGTH_SHORT).show();
+                    }
+
+                    else{
+                        Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.btnSignUp:
+            case R.id.button3:
                 registerUser();
                 break;
 
         }
     }
 
-    public void sendMessage3(View view) {
+    public void goToWelcome(View view) {
+        onClick(view);
+        // write to database
+        // database.writeUserToDatabase(accountType, nameOfUser, emailOfUser, usernameOfUser, passwordOfUser);
         // opens a new activity when you sign up
         Intent intent = new Intent(this, WelcomePage.class);
         EditText editText = (EditText) findViewById(R.id.nameTextField);
@@ -134,6 +179,8 @@ public class DisplayMessageActivity extends AppCompatActivity implements View.On
         EditText editTextName = (EditText) findViewById(R.id.nameTextField);
         nameOfUser = editTextName.getText().toString();
 
+        database.child("users").child(accountType).setValue(nameOfUser);
+
         EditText editTextEmail = (EditText) findViewById(R.id.emailTextField);
         emailOfUser = editTextEmail.getText().toString();
 
@@ -146,7 +193,6 @@ public class DisplayMessageActivity extends AppCompatActivity implements View.On
 
     public void serviceProviderClick(View view) {
         accountType = "Service Provider";
-
 
         LinearLayout serviceProLay = (LinearLayout) findViewById(R.id.serviceProviderLayout);
         serviceProLay.setVisibility(View.VISIBLE);
