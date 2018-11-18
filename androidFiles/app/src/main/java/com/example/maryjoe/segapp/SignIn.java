@@ -124,13 +124,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progBar.setVisibility(View.GONE);
                 String e = editTextemail.getText().toString().trim();
-                if(task.isSuccessful() && !e.equals("admin@example.com")){
+                if(task.isSuccessful() && !e.equals("admintest@yahoo.com")){
                     Intent intent = new Intent(SignIn.this, WelcomePage.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
 
                 }
-                else if (task.isSuccessful() && e.equals("admin@example.com")){
+                else if (task.isSuccessful() && e.equals("admintest@yahoo.com")){
                     Intent intent = new Intent(SignIn.this, AdminHome.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
