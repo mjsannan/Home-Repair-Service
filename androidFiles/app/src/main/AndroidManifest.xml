@@ -32,7 +32,9 @@
             android:label="@string/title_activity_add_availability" />
         <activity
             android:name=".CheckAvailability"
-            android:label="@string/title_activity_check_availability"></activity>
+            android:label="@string/title_activity_check_availability" />
+        <activity android:name=".ServiceProviderAddExtraInfo" />
+        <activity android:name=".ServiceProviderHome"></activity>
     </application>
 
 </manifest>

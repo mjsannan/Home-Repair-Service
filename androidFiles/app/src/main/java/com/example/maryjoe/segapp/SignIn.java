@@ -154,24 +154,28 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 case R.id.btnSignIn:
                     userLogin();
                     break;
+                case R.id.btnSignUp:
+                    goToSignUp();
+                    break;
             }
         }
     }
 
-    public void goToSignUp(View view){
+    public void goToSignUp(){
         // opens a new activity when the sign up button is pushed
         Intent intent = new Intent(this, SignUp.class);
-        EditText editText = (EditText) findViewById(R.id.signInEmail);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        //EditText editText = (EditText) findViewById(R.id.signInEmail);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 
     public void goToWelcome(View v){
         String e = editTextemail.getText().toString().trim();
-        if (e.equals("admin@example.com")) {
+        if (e.equals("admintest@example.com")) {
             // opens a new activity when you sign up
             Intent intent = new Intent(this, AdminHome.class);
+            userLogin();
             startActivity(intent);
         }
         else{goToWelcome2(v);}
@@ -179,6 +183,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     public void goToWelcome2(View v) {
             // opens a new activity when the sign in button is pushed
+            userLogin();
             Intent intent = new Intent(this, WelcomePage.class);
             EditText editText = (EditText) findViewById(R.id.signInEmail);
             String message = editText.getText().toString();

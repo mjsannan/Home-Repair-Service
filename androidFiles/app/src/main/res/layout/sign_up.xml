@@ -7,6 +7,19 @@
     tools:context=".SignUp">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="* if applicable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLinearLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
         android:id="@+id/signUp"
         android:layout_width="120dp"
         android:layout_height="51dp"
@@ -36,6 +49,7 @@
         android:id="@+id/emailTextField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
@@ -77,6 +91,7 @@
         android:id="@+id/confirmPassTextField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -87,13 +102,69 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
 
+    <EditText
+        android:id="@+id/serviceTypeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Service Type"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="66dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="312dp"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="300dp"
+        android:text="*"
+        app:layout_constraintBottom_toTopOf="@+id/btnLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/serviceTypeField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="329dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="*"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/serviceTypeField"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/priceField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:hint="Service Price"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/accountLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceTypeField" />
+
     <TextView
         android:id="@+id/accountLabel"
         android:layout_width="wrap_content"
         android:layout_height="29dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="120dp"
         android:text="Choose account type"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPassTextField" />
 
@@ -101,7 +172,7 @@
         android:id="@+id/btnLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,9 +185,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:visibility="visible"
             android:onClick="adminClick"
-            android:text="ADMIN" />
+            android:text="ADMIN"
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/homeOwner"
@@ -133,58 +204,29 @@
             android:layout_weight="1"
             android:onClick="serviceProviderClick"
             android:text="SERVICE PROVIDER" />
+
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/serviceProviderLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="244dp"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3">
-
-        <EditText
-            android:id="@+id/serviceTypeField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Service Type" />
-
-        <EditText
-            android:id="@+id/priceField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Price of Service" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="89dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:onClick="goToWelcome"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    
+
     <ProgressBar
-        android:visibility="gone"
-        android:layout_centerVertical = "true"
-        android:layout_centerHorizontal = "true"
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
 
 </android.support.constraint.ConstraintLayout>

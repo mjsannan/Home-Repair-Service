@@ -69,6 +69,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    public SignUp(){}
+
     public void registerUser(){
         String name = editTextname.getText().toString().trim();
         String email = editTextemail.getText().toString().trim();
@@ -148,16 +150,26 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             case R.id.button3:
                 registerUser();
                 break;
+                //goToWelcome(v);
         }
     }
 
     public void goToWelcome(View view) {
         if (accountType.equals("Admin")) {
             // opens a new activity when you sign up
+            registerUser();
             Intent intent = new Intent(this, AdminHome.class);
             startActivity(intent);
-        } else {
+
+        }
+        else if(accountType.equals("Service Provider")){
+            registerUser();
+            Intent intent = new Intent(this,ServiceProviderAddExtraInfo.class);
+            startActivity(intent);
+        }
+        else {
             // opens a new activity when you sign up
+            registerUser();
             Intent intent = new Intent(this, WelcomePage.class);
             EditText editText = (EditText) findViewById(R.id.nameTextField);
             String message = editText.getText().toString();
@@ -218,8 +230,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     public void serviceProviderClick(View view) {
         accountType = "Service Provider";
 
-        LinearLayout serviceProLay = (LinearLayout) findViewById(R.id.serviceProviderLayout);
-        serviceProLay.setVisibility(View.VISIBLE);
+       // ConstraintLayout serviceProLay = (LinearLayout) findViewById(R.id.serviceProviderLayout);
+        //serviceProLay.setVisibility(View.VISIBLE);
 
         EditText editTextName = (EditText) findViewById(R.id.nameTextField);
         nameOfUser = editTextName.getText().toString();

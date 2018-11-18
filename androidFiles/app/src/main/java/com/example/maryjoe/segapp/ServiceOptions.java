@@ -33,4 +33,9 @@ public class ServiceOptions extends AppCompatActivity {
         Intent intent = new Intent(ServiceOptions.this, CheckAvailability.class);
         startActivity(intent);
     }
+
+    public void signOutButton(View v){
+        Intent i = new Intent(this, SignIn.class);
+        startActivity(i);
+    }
 }

@@ -21,11 +21,11 @@
 
     <EditText
         android:id="@+id/enterService"
-        android:layout_width="wrap_content"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="Enter Service"
+        android:hint="Enter Service to Edit or Delete"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -36,24 +36,29 @@
         android:id="@+id/changePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
         android:ems="10"
+        android:hint="Change price of Service"
         android:inputType="text"
-        android:text="Change price"
-        app:layout_constraintTop_toBottomOf="@+id/enterService"
-        app:layout_constraintVertical_bias="0.536"
-        app:layout_constraintHorizontal_bias="0.536" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterService" />
 
     <Button
         android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginTop="381dp"
+        android:layout_marginBottom="16dp"
         android:onClick="editButton"
-        android:text="Button"
+        android:text="Edit Service"
         app:layout_constraintBottom_toTopOf="@+id/deleteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changePrice"
-        tools:text="Edit" />
+        tools:text=" Edit  Service" />
 
     <Button
         android:id="@+id/deleteButton"
@@ -61,21 +66,21 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
         android:onClick="deleteButton"
-        android:text="Button"
+        android:text="Delete Service"
         app:layout_constraintBottom_toTopOf="@+id/signOutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editButton"
-        tools:text="Delete" />
+        tools:text=" Delete Service" />
 
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginLeft="288dp"
+        android:layout_marginBottom="24dp"
         android:onClick="signOutButton"
         android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,15 +90,13 @@
         android:id="@+id/addUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
+        android:layout_marginBottom="24dp"
         android:onClick="addUserButton"
-        android:text="Add User"
+        android:text="Add More Services"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
 
 
 </android.support.constraint.ConstraintLayout>

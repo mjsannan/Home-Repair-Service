@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -29,6 +30,8 @@ public class AdminHome extends AppCompatActivity {
 
     public EditText serviceEditText;
     public String serviceToEdit;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +74,16 @@ public class AdminHome extends AppCompatActivity {
 
         mDatabase.child("Services").child(serviceToEdit).child("Price").setValue(newPriceString);
 
+        Toast.makeText(this,"This service has been edited successfully",Toast.LENGTH_SHORT).show();
+
+
     }
 
     public void deleteButton(View v) {
         mDatabase.child("Services").child(serviceToEdit).child("Price").setValue(null);
         mDatabase.child("Services").child(serviceToEdit).removeValue();
+
+        Toast.makeText(this, "This service has been deleted successfully",Toast.LENGTH_SHORT).show();
     }
 
     public void addUserButton(View v){
