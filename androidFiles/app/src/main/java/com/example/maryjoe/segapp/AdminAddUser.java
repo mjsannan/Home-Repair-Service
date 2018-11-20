@@ -76,7 +76,8 @@ public class AdminAddUser extends AppCompatActivity { // Admin add Service
 
     public String getService(){return serviceType;}
     public String getPriceService(){return priceOfService;}
-    public ArrayList<String> getServiceList(){return serviceList;}
+    public static ArrayList<String> getServiceList(){return serviceList;}
+
     public static void printServiceList(){
         for (int i = 0; i<serviceList.size(); i++){
             System.out.println(serviceList.get(i));

@@ -95,19 +95,19 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         String password = editTextpassword.getText().toString().trim();
 
         if(email.isEmpty()){
-            editTextemail.setError("Email is needed");
+            editTextemail.setError("Email required");
             editTextemail.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextemail.setError("Enter correct email");
+            editTextemail.setError("Incorrect Email");
             editTextemail.requestFocus();
             return;
 
         }
 
         if(password.isEmpty()){
-            editTextpassword.setError("Password is needed");
+            editTextpassword.setError("Password required");
             editTextpassword.requestFocus();
             return;
         }

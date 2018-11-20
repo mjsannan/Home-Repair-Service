@@ -29,15 +29,20 @@ public class WelcomePage extends AppCompatActivity {
        continueButton(v);
     }
 
+    SignUp signUp = new SignUp();
+
     public void continueButton(View view){
-        if ((SignUp.getAccountType()).equals("Service Provider")){
+        Intent intent = new Intent (WelcomePage.this, ServiceOptions.class);
+        startActivity(intent);
+        /*
+        if ((signUp.getAccountType()).equals("Service Provider")){
             Intent intent = new Intent(WelcomePage.this, ServiceOptions.class);
             startActivity(intent);
         }
-        else if ((SignUp.getAccountType()).equals("Homeowner")){
+        else if ((signUp.getAccountType()).equals("Homeowner")){
             //Do nothing for now
         }
-
+    */
     }
 
 }

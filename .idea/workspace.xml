@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3cc7f4-8669-42c7-bfdf-41aa2f001958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/androidFiles/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/AdminAddUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/AdminAddUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/AdminHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/AdminHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/java/com/example/maryjoe/segapp/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/admin_add_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/admin_add_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/admin_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/admin_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidFiles/app/src/main/res/layout/sign_up.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,9 +20,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="154" />
-    <option name="y" value="22" />
-    <option name="width" value="1199" />
+    <option name="x" value="153" />
+    <option name="y" value="21" />
+    <option name="width" value="1200" />
     <option name="height" value="816" />
   </component>
   <component name="ProjectView">
@@ -38,7 +30,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -50,13 +41,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OMcubed_Deliv2_incaseFile/androidFiles" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
