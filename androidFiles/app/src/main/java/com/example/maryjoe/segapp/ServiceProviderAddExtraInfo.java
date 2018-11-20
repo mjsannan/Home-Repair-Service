@@ -20,6 +20,8 @@ public class ServiceProviderAddExtraInfo extends AppCompatActivity {
 
     public static DatabaseReference database;
 
+    SignUp su = new SignUp();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,19 +48,49 @@ public class ServiceProviderAddExtraInfo extends AppCompatActivity {
     }
 
     public void gotoServiceProviderHome(View v){
-        if((!TextUtils.isEmpty(address) && !TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(companyName) && !TextUtils.isEmpty(description) && !TextUtils.isEmpty(licensed))){
-            database.child("Service Providers").child(address);
-            database.child("Service Providers").child(phoneNum);
-            database.child("Service Providers").child(companyName);
-            database.child("Service Providers").child(description);
-            database.child("Service Providers").child(licensed);
-            Toast.makeText(this,"Extra info successfully added to type serviceprovider",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ServiceProviderHome.class);
-            startActivity(intent);
+        boolean isValid = false;
+        if(address.isEmpty())
+        {
+            Toast.makeText(this,"Address is needed",Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+        if(phoneNum.isEmpty())
+        {
+            Toast.makeText(this,"Phone is needed",Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+        if(companyName.isEmpty())
+        {
+            Toast.makeText(this,"Company name is needed",Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+        if(description.isEmpty())
+        {
+            Toast.makeText(this,"Description is needed",Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+        if(licensed.isEmpty())
+        {
+            Toast.makeText(this,"Please enter yes/no if licensed",Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+        if(!isValid){
+            Toast.makeText(this,"Error occurred. All fields need to be filled",Toast.LENGTH_SHORT).show();
 
         }
         else{
-            Toast.makeText(this,"Error Occurred. All fields needs to be filled",Toast.LENGTH_SHORT).show();
+
+            String u = su.getUsernameOfUser();
+
+            database.child("Users").child(u).child(address);
+            database.child("Users").child(u).child(phoneNum);
+            database.child("Users").child(u).child(companyName);
+            database.child("Users").child(u).child(description);
+            database.child("Users").child(u).child(licensed);
+            Toast.makeText(this,"Extra information successfully added to type serviceprovider profile",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ServiceProviderHome.class);
+            startActivity(intent);
+
         }
     }
 

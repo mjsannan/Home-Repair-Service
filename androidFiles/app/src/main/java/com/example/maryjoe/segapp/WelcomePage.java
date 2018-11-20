@@ -25,6 +25,10 @@ public class WelcomePage extends AppCompatActivity {
         loggedTextView.setText(SignUp.getAccountType());
     }
 
+    public void onClick(View v){
+       continueButton(v);
+    }
+
     public void continueButton(View view){
         if ((SignUp.getAccountType()).equals("Service Provider")){
             Intent intent = new Intent(WelcomePage.this, ServiceOptions.class);

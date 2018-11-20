@@ -126,6 +126,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
+                    Intent intent = new Intent(SignUp.this, WelcomePage.class);
+                    EditText editText = (EditText) findViewById(R.id.nameTextField);
+                    String message = editText.getText().toString();
+                    intent.putExtra(EXTRA_MESSAGE, message);
+                    startActivity(intent);
                     Toast.makeText(getApplicationContext(),"User Registration Successful",Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -144,6 +149,161 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    public void registerUser1(){
+        String name = editTextname.getText().toString().trim();
+        String email = editTextemail.getText().toString().trim();
+        String username = editTextusername.getText().toString().trim();
+        String password = editTextpassword.getText().toString().trim();
+        String confirmpass = editTextconfpass.getText().toString().trim();
+
+        if(name.isEmpty()){
+            editTextname.setError("Name is required ");
+            editTextname.requestFocus();
+            return;
+        }
+        if(username.isEmpty()){
+            editTextusername.setError("Username is required");
+            editTextusername.requestFocus();
+            return;
+        }
+        if(email.isEmpty()){
+            editTextemail.setError("Email is required");
+            editTextemail.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextemail.setError("Enter a valid email");
+            editTextemail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            editTextpassword.setError("Password is required");
+            editTextpassword.requestFocus();
+            return;
+        }
+        if(password.length()<6) {
+            editTextpassword.setError("Minimum length of password is six");
+            editTextpassword.requestFocus();
+            return;
+        }
+
+        if(confirmpass.isEmpty()){
+            editTextconfpass.setError("Password is required");
+            editTextconfpass.requestFocus();
+            return;
+        }
+        if(!confirmpass.equals(password)){
+            editTextconfpass.setError("Password does not match. Renter password");
+            editTextconfpass.requestFocus();
+            return;
+        }
+        progBar.setVisibility(View.VISIBLE);
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progBar.setVisibility(View.GONE);
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(SignUp.this, AdminHome.class);
+                    startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(),"User Registration Successful",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Error occurred",Toast.LENGTH_SHORT).show();
+
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        Toast.makeText(getApplicationContext(),"You are already registered in the system",Toast.LENGTH_SHORT).show();
+                    }
+
+                    else{
+                        Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+
+    public void registerUser2(){
+        String name = editTextname.getText().toString().trim();
+        String email = editTextemail.getText().toString().trim();
+        String username = editTextusername.getText().toString().trim();
+        String password = editTextpassword.getText().toString().trim();
+        String confirmpass = editTextconfpass.getText().toString().trim();
+
+        if(name.isEmpty()){
+            editTextname.setError("Name is required ");
+            editTextname.requestFocus();
+            return;
+        }
+        if(username.isEmpty()){
+            editTextusername.setError("Username is required");
+            editTextusername.requestFocus();
+            return;
+        }
+        if(email.isEmpty()){
+            editTextemail.setError("Email is required");
+            editTextemail.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextemail.setError("Enter a valid email");
+            editTextemail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            editTextpassword.setError("Password is required");
+            editTextpassword.requestFocus();
+            return;
+        }
+        if(password.length()<6) {
+            editTextpassword.setError("Minimum length of password is six");
+            editTextpassword.requestFocus();
+            return;
+        }
+
+        if(confirmpass.isEmpty()){
+            editTextconfpass.setError("Password is required");
+            editTextconfpass.requestFocus();
+            return;
+        }
+        if(!confirmpass.equals(password)){
+            editTextconfpass.setError("Password does not match. Renter password");
+            editTextconfpass.requestFocus();
+            return;
+        }
+        progBar.setVisibility(View.VISIBLE);
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progBar.setVisibility(View.GONE);
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(SignUp.this, ServiceProviderAddExtraInfo.class);
+                    startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(),"User Registration Successful",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Error occurred",Toast.LENGTH_SHORT).show();
+
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        Toast.makeText(getApplicationContext(),"You are already registered in the system",Toast.LENGTH_SHORT).show();
+                    }
+
+                    else{
+                        Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -155,26 +315,22 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void goToWelcome(View view) {
-        if (accountType.equals("Admin")) {
+        if(accountType.equals(null)){
+            Toast.makeText(this,"Error occurred. You need to select an account type",Toast.LENGTH_SHORT).show();
+        }
+        else if (accountType.equals("Admin")) {
             // opens a new activity when you sign up
-            registerUser();
-            Intent intent = new Intent(this, AdminHome.class);
-            startActivity(intent);
+            registerUser1();
 
         }
         else if(accountType.equals("Service Provider")){
-            registerUser();
-            Intent intent = new Intent(this,ServiceProviderAddExtraInfo.class);
-            startActivity(intent);
+            registerUser2();
+
         }
         else {
             // opens a new activity when you sign up
             registerUser();
-            Intent intent = new Intent(this, WelcomePage.class);
-            EditText editText = (EditText) findViewById(R.id.nameTextField);
-            String message = editText.getText().toString();
-            intent.putExtra(EXTRA_MESSAGE, message);
-            startActivity(intent);
+
         }
     }
 

@@ -11,12 +11,16 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 import static com.example.maryjoe.segapp.SignIn.EXTRA_MESSAGE;
 
 public class AdminAddUser extends AppCompatActivity { // Admin add Service
     public static String serviceType, priceOfService;
 
     EditText nameOfService, priceofService;
+
+    static ArrayList <String> serviceList = new ArrayList <String> (1000);
 
     public static DatabaseReference database;
 
@@ -48,6 +52,9 @@ public class AdminAddUser extends AppCompatActivity { // Admin add Service
 
         if(!TextUtils.isEmpty(serviceType) && !TextUtils.isEmpty(priceOfService)){
 
+
+            serviceList.add(serviceType);
+
             database.child("Services").child(serviceType);
             database.child("Services").child(serviceType).child("Price").setValue(p);
             Toast.makeText(this, "Service Type and Price of Service successfully added", Toast.LENGTH_SHORT).show();
@@ -69,6 +76,12 @@ public class AdminAddUser extends AppCompatActivity { // Admin add Service
 
     public String getService(){return serviceType;}
     public String getPriceService(){return priceOfService;}
+    public ArrayList<String> getServiceList(){return serviceList;}
+    public static void printServiceList(){
+        for (int i = 0; i<serviceList.size(); i++){
+            System.out.println(serviceList.get(i));
+        }
+    }
 
     public void setServiceType(String serviceType){this.serviceType = serviceType;}
     public void setPriceOfService(String priceOfService){this.priceOfService = priceOfService;}
