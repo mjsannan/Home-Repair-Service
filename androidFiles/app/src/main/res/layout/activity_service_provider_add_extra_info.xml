@@ -37,7 +37,7 @@
         android:layout_marginBottom="2dp"
         android:ems="10"
         android:hint="Enter Phone Number"
-        android:inputType="textPersonName|phone"
+        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/companyName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

@@ -47,14 +47,22 @@ public class AdminAddUser extends AppCompatActivity { // Admin add Service
         EditText editTextPrice = (EditText) findViewById(R.id.price);
         priceOfService = editTextPrice.getText().toString();
 
-        Float p = Float.parseFloat(priceOfService);
+        boolean allValid = true;
 
+        if(TextUtils.isEmpty(serviceType)){
+            allValid = false;
+            Toast.makeText(this,"Service Type Needed",Toast.LENGTH_SHORT).show();
+        }
+        if(TextUtils.isEmpty(priceOfService)){
+            allValid = false;
+            Toast.makeText(this,"Price of Service Needed",Toast.LENGTH_SHORT).show();
+        }
 
-        if(!TextUtils.isEmpty(serviceType) && !TextUtils.isEmpty(priceOfService)){
-
-
-            serviceList.add(serviceType);
-
+        if(!allValid){
+            Toast.makeText(this,"Error occured. All fields need to be filled",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Float p = Float.parseFloat(priceOfService);
             database.child("Services").child(serviceType);
             database.child("Services").child(serviceType).child("Price").setValue(p);
             Toast.makeText(this, "Service Type and Price of Service successfully added", Toast.LENGTH_SHORT).show();
@@ -64,11 +72,7 @@ public class AdminAddUser extends AppCompatActivity { // Admin add Service
             intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
         }
-        else{
 
-            Toast.makeText(this,"Service name and Price is needed",Toast.LENGTH_SHORT).show();
-
-        }
 
     }
 

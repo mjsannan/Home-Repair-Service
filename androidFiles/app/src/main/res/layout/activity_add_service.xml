@@ -144,8 +144,11 @@
         android:ems="10"
         android:hint="Other Price"
         android:inputType="number"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="405dp" />
+        app:layout_constraintBottom_toTopOf="@+id/signOutButton"
+        app:layout_constraintEnd_toStartOf="@+id/addPriceButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otherService" />
 
     <Button
         android:id="@+id/addPriceButton"
@@ -153,13 +156,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="35dp"
         android:onClick="AddServiceClick"
         android:text="Add Price"
         app:layout_constraintBottom_toTopOf="@+id/updateButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addServiceButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/fromDatabase"

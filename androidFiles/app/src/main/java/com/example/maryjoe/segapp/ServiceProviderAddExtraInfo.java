@@ -15,7 +15,7 @@ import static com.example.maryjoe.segapp.SignIn.EXTRA_MESSAGE;
 
 public class ServiceProviderAddExtraInfo extends AppCompatActivity {
 
-    EditText editTextAddress,editTextPhoneNum,editTextCompanyName,editTextDescription,editTextLicensed;
+
     public static  String address,phoneNum,companyName,description,licensed;
 
     public static DatabaseReference database;
@@ -29,67 +29,82 @@ public class ServiceProviderAddExtraInfo extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
 
-        editTextAddress = (EditText) findViewById(R.id.address);
-        address = editTextAddress.getText().toString();
-
-        editTextPhoneNum = (EditText) findViewById(R.id.phoneNum);
-        phoneNum = editTextPhoneNum.getText().toString();
-
-        editTextCompanyName = (EditText) findViewById(R.id.companyName);
-        companyName = editTextCompanyName.getText().toString();
-
-        editTextDescription = (EditText) findViewById(R.id.description);
-        description = editTextDescription.getText().toString();
-
-        editTextLicensed = (EditText) findViewById(R.id.licensed);
-        licensed = editTextLicensed.getText().toString();
-
-
     }
 
     public void gotoServiceProviderHome(View v){
-        boolean isValid = false;
-        if(address.isEmpty())
+        EditText editTextAddress = (EditText) findViewById(R.id.address);
+        address = editTextAddress.getText().toString();
+
+        EditText editTextPhoneNum = (EditText) findViewById(R.id.phoneNum);
+        phoneNum = editTextPhoneNum.getText().toString();
+
+        EditText editTextCompanyName = (EditText) findViewById(R.id.companyName);
+        companyName = editTextCompanyName.getText().toString();
+
+        EditText editTextDescription = (EditText) findViewById(R.id.description);
+        description = editTextDescription.getText().toString();
+
+        EditText editTextLicensed = (EditText) findViewById(R.id.licensed);
+        licensed = editTextLicensed.getText().toString();
+
+        boolean isValid = true;
+
+        if(TextUtils.isEmpty(address))
         {
+            isValid = false;
             Toast.makeText(this,"Address is needed",Toast.LENGTH_SHORT).show();
-            isValid = false;
         }
-        if(phoneNum.isEmpty())
+        if(TextUtils.isEmpty(phoneNum))
         {
+            isValid = false;
             Toast.makeText(this,"Phone is needed",Toast.LENGTH_SHORT).show();
-            isValid = false;
+
         }
-        if(companyName.isEmpty())
+        if(TextUtils.isEmpty(companyName))
         {
+            isValid = false;
             Toast.makeText(this,"Company name is needed",Toast.LENGTH_SHORT).show();
-            isValid = false;
+
         }
-        if(description.isEmpty())
+        if(TextUtils.isEmpty(description))
         {
+            isValid = false;
             Toast.makeText(this,"Description is needed",Toast.LENGTH_SHORT).show();
-            isValid = false;
+
         }
-        if(licensed.isEmpty())
+        if(TextUtils.isEmpty(licensed))
         {
-            Toast.makeText(this,"Please enter yes/no if licensed",Toast.LENGTH_SHORT).show();
             isValid = false;
+            Toast.makeText(this,"Please enter yes/no if licensed",Toast.LENGTH_SHORT).show();
+
         }
+
         if(!isValid){
+
             Toast.makeText(this,"Error occurred. All fields need to be filled",Toast.LENGTH_SHORT).show();
 
         }
         else{
 
-            String u = su.getUsernameOfUser();
+            String u = su.getNameOfUser();
 
-            database.child("Users").child(u).child(address);
-            database.child("Users").child(u).child(phoneNum);
-            database.child("Users").child(u).child(companyName);
-            database.child("Users").child(u).child(description);
-            database.child("Users").child(u).child(licensed);
+            database.child("Users").child(u).child("Address").setValue(address);
+            database.child("Users").child(u).child("Phone Number").setValue(phoneNum);
+            database.child("Users").child(u).child("Company Name").setValue(companyName);
+            database.child("Users").child(u).child("Description").setValue(description);
+            database.child("Users").child(u).child("Licensed").setValue(licensed);
+
             Toast.makeText(this,"Extra information successfully added to type serviceprovider profile",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ServiceProviderHome.class);
+            EditText editText = (EditText) findViewById(R.id.address);
+            String message = editText.getText().toString();
+            intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
+            Toast.makeText(this,"Extra information successfully added to type serviceprovider profile",Toast.LENGTH_SHORT).show();
+
+
+
+
 
         }
     }
