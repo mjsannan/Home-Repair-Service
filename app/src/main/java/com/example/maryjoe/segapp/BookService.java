@@ -53,12 +53,12 @@ public class BookService extends AppCompatActivity {
             serviceNameET.requestFocus();
         }
         if (serviceDateS.isEmpty()){
-            serviceNameET.setError("Date required");
-            serviceNameET.requestFocus();
+            serviceDateET.setError("Date required");
+            serviceDateET.requestFocus();
         }
         if (serviceTimeS.isEmpty()){
-            serviceNameET.setError("Time required");
-            serviceNameET.requestFocus();
+            serviceTimeET.setError("Time required");
+            serviceTimeET.requestFocus();
         }
 
 

@@ -66,6 +66,7 @@ public class AddAvailability extends Activity implements View.OnClickListener {
     public static String key;
     public static final String TAG = "GETTING NAME OF USER";
 
+
     static ArrayList <String> availabilityList = new ArrayList <String> (1000);;
 
     @Override

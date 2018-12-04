@@ -16,6 +16,7 @@ public class RateService extends AppCompatActivity {
 
     EditText serviceNameET, ratingET, commentET;
     String serviceNameS, ratingS, commentS;
+    int n = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +79,10 @@ public class RateService extends AppCompatActivity {
         }
 
         if (!serviceNameS.isEmpty() && !ratingS.isEmpty() && !commentS.isEmpty()){
-            database.child("Users").child(serviceNameS).child("Ratings").child("Score").setValue(ratingS);
-            database.child("Users").child(serviceNameS).child("Ratings").child("Comment").setValue(commentS);
+            database.child("Users").child(serviceNameS).child("Ratings").child("Score"+n).setValue(ratingS);
+            database.child("Users").child(serviceNameS).child("Ratings").child("Comment"+n).setValue(commentS);
             Toast.makeText(this, "Thank you for rating this Service Provider", Toast.LENGTH_SHORT).show();
-
+            n++;
         }
     }
 
