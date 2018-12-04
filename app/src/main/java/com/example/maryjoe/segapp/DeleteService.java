@@ -42,7 +42,7 @@ public class DeleteService extends Activity implements View.OnClickListener{
         service = serviceTV.getText().toString().trim();
 
         if (!name.isEmpty() && !service.isEmpty()){
-            database.child("Users").child(name).child("Added Services").child(service).setValue(null);
+            database.child("Users").child(name).child("Added Services").child(service).setValue("null");
             Toast.makeText(this, "Service deleted from profile", Toast.LENGTH_SHORT).show();
         }
 

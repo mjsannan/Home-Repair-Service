@@ -32,16 +32,22 @@ public class WelcomePage extends AppCompatActivity {
     SignUp signUp = new SignUp();
 
     public void continueButton(View view){
-        //Intent intent = new Intent (WelcomePage.this, ServiceOptions.class);
-        //startActivity(intent);
 
-        if ((signUp.getAccountType()).equals("Service Provider")){
-            Intent intent = new Intent(WelcomePage.this, ServiceOptions.class);
-            startActivity(intent);
+        try {
+
+            if ((signUp.getAccountType()).equals("Service Provider")) {
+                Intent intent = new Intent(WelcomePage.this, ServiceOptions.class);
+                startActivity(intent);
+            } else if ((signUp.getAccountType()).equals("Homeowner")) {
+                Intent i = new Intent(WelcomePage.this, HomeownerOptions.class);
+                startActivity(i);
+            }
+
         }
-        else if ((signUp.getAccountType()).equals("Homeowner")){
-            Intent i = new Intent(WelcomePage.this, HomeownerOptions.class);
-            startActivity(i);
+
+        catch (Exception e){
+            Intent intent = new Intent (WelcomePage.this, ServiceOptions.class);
+            startActivity(intent);
         }
 
     }

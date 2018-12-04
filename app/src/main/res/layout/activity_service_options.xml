@@ -55,7 +55,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dark_purple_round_button"
                 android:gravity="center"
-                android:onClick="checkAvailabilityButton"
+                android:onClick="addAvailabilityButton"
                 android:text="Check Availability"
                 android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
