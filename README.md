@@ -11,7 +11,7 @@ Marissa Phul
 
 Margaret Ajibola
 
-Omade Ookwoor
+Omade Okwoor
 
 
 
