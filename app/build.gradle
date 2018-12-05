@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    testOptions{
+    testOptions { 
         unitTests.returnDefaultValues = true
     }
 }
@@ -33,6 +33,9 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth:16.0.4'
     implementation 'com.google.firebase:firebase-database:16.0.4'
+
+    //implementation 'com.android.tools.build:gradle:3.0.1'
+    //implementation 'com.google.gms:google-services:3.0.0'
 
 }
 

@@ -9,12 +9,18 @@ import android.widget.Toast;
 
 import java.lang.ExceptionInInitializerError;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RateService extends AppCompatActivity{
-
-    public static DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+public class RateService extends AppCompatActivity {
+    static DatabaseReference database;
+    static {
+        try {
+            database = FirebaseDatabase.getInstance().getReference();
+        }
+        catch (Exception e){System.out.println(e);}
+    }
 
     EditText serviceNameET, ratingET, commentET;
     String serviceNameS, ratingS, commentS;
@@ -65,6 +71,7 @@ public class RateService extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_rate_service);
     }
 
