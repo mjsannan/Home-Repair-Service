@@ -167,9 +167,9 @@ public class AddService extends AppCompatActivity implements View.OnClickListene
             case R.id.providedServiceButton:
                 fromDatabaseButton(v);
                 break;
-            case R.id.addServiceButton:
-                AddServiceClick(v);
-                break;
+          //  case R.id.addServiceButton:
+            //    AddServiceClick(v);
+              //  break;
             case R.id.updateButton:
                 updateButton(v);
                 break;
@@ -181,7 +181,7 @@ public class AddService extends AppCompatActivity implements View.OnClickListene
         startActivity(i);
     }
 
-    public void AddServiceClick(View v){
+   /* public void AddServiceClick(View v){
 
         nameET = findViewById(R.id.nameView);
         String name = nameET.getText().toString().trim();
@@ -223,7 +223,7 @@ public class AddService extends AppCompatActivity implements View.OnClickListene
         }
 
 
-    }
+    } */
 
     public void fromDatabaseButton(View v){
 
