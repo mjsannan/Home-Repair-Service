@@ -17,6 +17,49 @@ public class BookService extends AppCompatActivity {
     EditText serviceNameET, serviceDateET, serviceTimeET;
     String serviceNameS, serviceDateS, serviceTimeS;
 
+    public BookService(){}
+
+    public BookService(String name, String date, String time){
+        this.serviceNameS = name;
+        this.serviceDateS = date;
+        this.serviceTimeS = time;
+    }
+
+    public void setName(String name){this.serviceNameS = name;}
+    public void setDate(String date){this.serviceDateS = date;}
+    public void setTime(String time){this.serviceTimeS = time;}
+
+    public String getName(){return this.serviceNameS;}
+    public String getDate(){return this.serviceDateS;}
+    public String getTime(){return this.serviceTimeS;}
+
+    public boolean nameEmpty(){
+
+        boolean anws = false;
+        if (serviceNameS.equals("")){anws = true;}
+        return anws;
+    }
+
+    public boolean dateEmpty(){
+
+        boolean anws = false;
+        if (serviceDateS.equals("")){anws = true;}
+        return anws;
+    }
+
+    public boolean timeEmpty(){
+
+        boolean anws = false;
+        if (serviceTimeS.equals("")){anws = true;}
+        return anws;
+    }
+
+    public boolean success(){
+        boolean anws = false;
+        if (!serviceNameS.equals("") && !serviceDateS.equals("") && !serviceTimeS.equals("")){anws = true;}
+        return anws;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +96,12 @@ public class BookService extends AppCompatActivity {
             serviceNameET.requestFocus();
         }
         if (serviceDateS.isEmpty()){
-            serviceNameET.setError("Date required");
-            serviceNameET.requestFocus();
+            serviceDateET.setError("Date required");
+            serviceDateET.requestFocus();
         }
         if (serviceTimeS.isEmpty()){
-            serviceNameET.setError("Time required");
-            serviceNameET.requestFocus();
+            serviceTimeET.setError("Time required");
+            serviceTimeET.requestFocus();
         }
 
 

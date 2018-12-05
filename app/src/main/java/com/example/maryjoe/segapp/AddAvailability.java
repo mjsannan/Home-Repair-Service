@@ -66,6 +66,7 @@ public class AddAvailability extends Activity implements View.OnClickListener {
     public static String key;
     public static final String TAG = "GETTING NAME OF USER";
 
+
     static ArrayList <String> availabilityList = new ArrayList <String> (1000);;
 
     @Override
@@ -160,12 +161,17 @@ public class AddAvailability extends Activity implements View.OnClickListener {
         }
 
 
+
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        Query query = rootRef.child("Availability").child(SignIn.emailLoggingIn);
+        Query query = rootRef.child("Users").orderByChild("Email").equalTo(SignIn.emailLoggingIn);
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Toast.makeText(getApplicationContext(), dataSnapshot.child("Date").getValue(String.class), Toast.LENGTH_LONG).show();
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    key = ds.getKey();
+                    tmpName.setText(key);
+                    Log.d(TAG, key);
+                }
             }
 
             @Override
