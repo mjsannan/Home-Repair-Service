@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.maryjoe.segapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Home Repair Service"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SignIn">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp" />
+        <activity android:name=".WelcomePage" />
+        <activity android:name=".AdminHome" />
+        <activity android:name=".AdminAddUser" />
+        <activity android:name=".ServiceOptions" />
+        <activity android:name=".AddService" />
+        <activity
+            android:name=".DeleteService"
+            android:label="@string/title_activity_delete_service" />
+        <activity
+            android:name=".AddAvailability"
+            android:label="@string/title_activity_add_availability" />
+        <activity android:name=".ServiceProviderAddExtraInfo" />
+        <activity android:name=".ServiceProviderHome" />
+        <activity android:name=".HomeownerOptions" />
+        <activity android:name=".BookService" />
+        <activity android:name=".RateService"></activity>
+    </application>
+
+</manifest>

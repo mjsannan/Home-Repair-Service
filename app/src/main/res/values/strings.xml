@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SEGApp</string>
+    <string-array name="accountTypes">
+        <item>Admin</item>
+        <item>Homeowner</item>
+        <item>Service Provider</item>
+    </string-array>
+    <string name="title_activity_delete_service">DeleteService</string>
+    <string name="title_activity_add_availability">AddAvailability</string>
+    <string name="title_activity_check_availability">CheckAvailability</string>
+</resources>
