@@ -7,16 +7,60 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.ExceptionInInitializerError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RateService extends AppCompatActivity {
+public class RateService extends AppCompatActivity{
 
     public static DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     EditText serviceNameET, ratingET, commentET;
     String serviceNameS, ratingS, commentS;
     int n = 0;
+
+    public RateService(){}
+
+    public RateService(String serviceName, String rating, String comment){
+        this.serviceNameS = serviceName;
+        this.ratingS = rating;
+        this.commentS = comment;
+    }
+
+    public void setName(String name){this.serviceNameS = name;}
+    public void setRate(String rate){this.ratingS = rate;}
+    public void setComment(String c){this.commentS = c;}
+
+    public String getServiceName(){return this.serviceNameS;}
+    public String getServiceRating(){return this.ratingS;}
+    public String getServiceComment(){return this.commentS;}
+
+    public boolean correctRating(){
+        boolean anws = true;
+        int r = Integer.parseInt(ratingS);
+        if (r < 0 || r > 5){anws = false;}
+        return anws;
+    }
+
+    public boolean serviceEmpty(){
+        boolean anws = false;
+        if (serviceNameS.equals("")){anws = true;}
+        return anws;
+    }
+
+    public boolean ratingEmpty(){
+        boolean anws = false;
+        if (ratingS.equals("")){anws = true;}
+        return anws;
+    }
+
+    public boolean commentEmpty(){
+        boolean anws = false;
+        if (commentS.equals("")){anws = true;}
+        return anws;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

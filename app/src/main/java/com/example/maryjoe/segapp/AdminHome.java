@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -45,10 +46,14 @@ public class AdminHome extends AppCompatActivity {
         serviceEditText = (EditText) findViewById(R.id.enterService);
         serviceToEdit =  serviceEditText.getText().toString();
 
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        String newEntry = SignIn.emailLoggingIn;
+        newEntry = newEntry.replace(".", ",");
+        Query query = rootRef.child("Users").child(newEntry);
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                showData(dataSnapshot);
+                Toast.makeText(getApplicationContext(), dataSnapshot.child("Username").getValue(String.class), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -56,15 +61,6 @@ public class AdminHome extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void showData(DataSnapshot dataSnapshot) {
-        for (DataSnapshot ds: dataSnapshot.getChildren()) {
-            UserInformation uInfo = new UserInformation();
-            uInfo.setService(ds.child(serviceToEdit).getValue(UserInformation.class).getService());
-            uInfo.setPrice(ds.child(serviceToEdit).getValue(UserInformation.class).getPrice());
-
-        }
     }
 
     public void editButton(View v) {
