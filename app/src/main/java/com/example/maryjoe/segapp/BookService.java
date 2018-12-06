@@ -137,26 +137,11 @@ public class BookService extends AppCompatActivity {
     }
 
     public void bookButton(View v){
-//        serviceNameET = findViewById(R.id.nameToBook);
-//        serviceDateET = findViewById(R.id.dateToBook);
-//        serviceTimeET = findViewById(R.id.timeToBook);
-//
-//        serviceNameS = serviceNameET.getText().toString().trim();
-//        serviceDateS = serviceDateET.getText().toString().trim();
-//        serviceTimeS = serviceTimeET.getText().toString().trim();
-//
-//        if (serviceNameS.isEmpty()){
-//            serviceNameET.setError("Service name required");
-//            serviceNameET.requestFocus();
-//        }
-//        if (serviceDateS.isEmpty()){
-//            serviceDateET.setError("Date required");
-//            serviceDateET.requestFocus();
-//        }
-//        if (serviceTimeS.isEmpty()){
-//            serviceTimeET.setError("Time required");
-//            serviceTimeET.requestFocus();
-//        }
+        if (availabilityList.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "No service selected", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "You are booked", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void search(View v) {
