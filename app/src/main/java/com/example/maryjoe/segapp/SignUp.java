@@ -355,8 +355,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         database.child("Users").child(nameOfUser).child("Account Type").setValue(accountType);
         database.child("Users").child(nameOfUser).child("Username").setValue(usernameOfUser);
         database.child("Users").child(nameOfUser).child("Password").setValue(passwordOfUser);
-        database.child("Users").child(nameOfUser).child("Service Type").setValue(null);
-        database.child("Users").child(nameOfUser).child("Price of Service").setValue(null);
     }
 
     public void homeOwnerClick(View view) {

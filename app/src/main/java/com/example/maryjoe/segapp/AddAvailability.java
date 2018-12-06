@@ -66,6 +66,8 @@ public class AddAvailability extends Activity implements View.OnClickListener {
     public static String key;
     public static final String TAG = "GETTING NAME OF USER";
 
+    public String save;
+
 
     static ArrayList <String> availabilityList = new ArrayList <String> (1000);;
 
@@ -167,11 +169,7 @@ public class AddAvailability extends Activity implements View.OnClickListener {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    key = ds.getKey();
-                    tmpName.setText(key);
-                    Log.d(TAG, key);
-                }
+
             }
 
             @Override
@@ -252,8 +250,12 @@ public class AddAvailability extends Activity implements View.OnClickListener {
         String newEntry = SignIn.emailLoggingIn;
         newEntry = newEntry.replace(".", ",");
 
+        EditText tmpService = findViewById(R.id.serviceType);
+        save = tmpService.getText().toString();
+
         database.child("Availability").setValue(newEntry);
 
+        database.child("Availability").child(newEntry).child("Service").setValue(save);
         database.child("Availability").child(newEntry).child("Time").setValue(txtTime.getText().toString());
         database.child("Availability").child(newEntry).child("Date").setValue(txtDate.getText().toString());
 

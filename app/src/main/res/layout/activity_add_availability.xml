@@ -11,6 +11,23 @@
     tools:context=".AddAvailability">
 
     <EditText
+        android:id="@+id/serviceType"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availLabel"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/availLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nameToGet"
+        android:layout_alignStart="@+id/in_date"
+        android:text="Enter service you are available for:" />
+
+    <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/in_date"
@@ -70,13 +87,9 @@
         android:id="@+id/availView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/confirm_avail"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginBottom="-24dp"
-        android:text="Availability"
+        android:layout_alignStart="@+id/in_date"
+        android:layout_below="@+id/confirm_avail"
+        android:text="Current Availability"
         android:textSize="18sp" />
 
     <TextView
