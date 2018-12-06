@@ -19,8 +19,8 @@ GitHub Link: https://github.com/msann027/Home-Repair-Service/tree/master
 
 
 Admin Login:
-Username: admin
-Email: adm1n@gmail.com
+Username: admin_1
+Email: admintest@yahoo.com
 Password: password
 
 Service Provider Login:
